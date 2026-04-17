@@ -1,0 +1,38 @@
+<button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+	<span class="theme-toggle__label" data-theme-label>Dark mode</span>
+</button>
+
+<script is:inline>
+	const storageKey = 'constiertel-theme';
+	const root = document.documentElement;
+	const toggle = document.querySelector('[data-theme-toggle]');
+	const label = toggle?.querySelector('[data-theme-label]');
+	const systemPreference = window.matchMedia('(prefers-color-scheme: dark)');
+
+	const setTheme = (theme) => {
+		root.dataset.theme = theme;
+		root.style.colorScheme = theme;
+		localStorage.setItem(storageKey, theme);
+		if (label) label.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+	};
+
+	const syncFromRoot = () => {
+		const theme = root.dataset.theme === 'dark' ? 'dark' : 'light';
+		if (label) label.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+	};
+
+	syncFromRoot();
+
+	toggle?.addEventListener('click', () => {
+		const nextTheme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+		setTheme(nextTheme);
+	});
+
+	systemPreference.addEventListener('change', (event) => {
+		const stored = localStorage.getItem(storageKey);
+		if (stored === 'light' || stored === 'dark') return;
+		root.dataset.theme = event.matches ? 'dark' : 'light';
+		root.style.colorScheme = root.dataset.theme;
+		syncFromRoot();
+	});
+</script>

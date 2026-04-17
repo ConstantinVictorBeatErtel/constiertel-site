@@ -1,0 +1,41 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+	const research = await getCollection('research');
+
+	return research.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+	title={`${entry.data.title} | Research`}
+	description={entry.data.summary}
+	activePath="/research"
+>
+	<article class="article-shell">
+		<header class="article-header">
+			<p class="eyebrow">Research / {entry.data.ticker}</p>
+			<h1>{entry.data.title}</h1>
+			<p class="lede">{entry.data.summary}</p>
+			<div class="article-meta">
+				<span>{entry.data.date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+				<div class="tag-row">
+					{entry.data.tags.map((tag) => (
+						<span class="tag">{tag}</span>
+					))}
+				</div>
+			</div>
+		</header>
+		<div class="article-content">
+			<Content />
+		</div>
+	</article>
+</BaseLayout>

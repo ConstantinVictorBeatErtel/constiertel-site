@@ -1,11 +1,84 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { projects, site } from '../data/site';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const research = (await getCollection('research')).sort(
+	(a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const featuredResearch = research.slice(0, 2);
+const featuredProjects = projects.slice(0, 3);
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+	title="Consti Ertel | Research, Analytics, and Projects"
+	description="Personal portfolio and equity research platform for Consti Ertel, focused on analytical systems, machine learning, and long-horizon investing."
+	activePath="/"
+>
+	<section class="hero section-grid">
+		<div class="hero-copy">
+			<p class="eyebrow">Constiertel</p>
+			<h1>{site.name}</h1>
+			<p class="lede">{site.tagline}</p>
+			<p class="hero-text">
+				I build analytical products, publish equity research, and translate complex datasets into clear
+				investment narratives.
+			</p>
+			<div class="hero-actions">
+				<a class="button button--primary" href="/research">Read Research</a>
+				<a class="button button--secondary" href="/about">About Me</a>
+			</div>
+		</div>
+		<div class="hero-panel card">
+			<p class="panel-label">Current focus</p>
+			<ul class="signal-list">
+				<li>Equity research with a durable-moat, cash-flow-first lens.</li>
+				<li>ML and analytics systems for forecasting, screening, and decision support.</li>
+				<li>Editorial writing that balances rigor, clarity, and market context.</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="section-grid section-spaced">
+		<div class="section-heading">
+			<p class="eyebrow">Recent research</p>
+			<h2>Editorial stock workups built for patient readers.</h2>
+		</div>
+		<div class="stack">
+			{featuredResearch.map((entry) => (
+				<a class="research-card card" href={`/research/${entry.id}/`}>
+					<div class="card-meta">
+						<span>{entry.data.ticker}</span>
+						<span>{entry.data.date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+					</div>
+					<h3>{entry.data.title}</h3>
+					<p>{entry.data.summary}</p>
+					<div class="tag-row">
+						{entry.data.tags.map((tag) => (
+							<span class="tag">{tag}</span>
+						))}
+					</div>
+				</a>
+			))}
+		</div>
+	</section>
+
+	<section class="section-grid section-spaced">
+		<div class="section-heading">
+			<p class="eyebrow">Selected builds</p>
+			<h2>Machine learning and analytics projects with production intent.</h2>
+		</div>
+		<div class="project-grid">
+			{featuredProjects.map((project) => (
+				<article class="project-card card">
+					<div class="card-meta">
+						<span>{project.category}</span>
+						<a href={project.href} target="_blank" rel="noreferrer">Open</a>
+					</div>
+					<h3>{project.title}</h3>
+					<p>{project.description}</p>
+				</article>
+			))}
+		</div>
+	</section>
+</BaseLayout>

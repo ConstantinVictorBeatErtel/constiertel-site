@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="About | Consti Ertel" description="Background, bio, and links for Consti Ertel." activePath="/about">
+	<section class="section-grid">
+		<div class="section-heading">
+			<p class="eyebrow">About</p>
+			<h1>Research-minded builder with a bias for clarity.</h1>
+		</div>
+		<div class="about-grid">
+			<div class="photo-placeholder card">
+				<div class="photo-placeholder__inner">
+					<span>CE</span>
+					<p>Photo placeholder</p>
+				</div>
+			</div>
+			<div class="stack">
+				<article class="card">
+					<h2>Background</h2>
+					<p>
+						I work at the intersection of investing, analytics, and machine learning. My focus is on
+						building systems that improve decision quality without obscuring the reasoning behind them.
+					</p>
+				</article>
+				<article class="card">
+					<h2>Bio</h2>
+					<p>
+						This site is a home for long-form equity research, project notes, and selected work across
+						data science, forecasting, and applied ML. The goal is straightforward: publish rigorous work
+						in a clean format that respects the reader’s attention.
+					</p>
+				</article>
+				<article class="card">
+					<h2>Links</h2>
+					<div class="inline-links">
+						{site.socialLinks.map((link) => (
+							<a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+						))}
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
