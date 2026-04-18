@@ -23,24 +23,31 @@ export const navLinks = [
 
 export const projects = [
 	{
-		title: 'Market Narrative Engine',
-		category: 'NLP / Research Workflow',
+		title: 'JEPA Experiment',
+		category: 'ML / Self-Supervised Learning',
 		description:
-			'A writing pipeline that turns earnings transcripts, company filings, and KPI tables into draft investment memos with traceable source excerpts.',
-		href: 'https://github.com/ConstiX',
+			'A PyTorch research comparison of two self-supervised vision objectives: JEPA latent prediction versus masked-patch reconstruction (MAE-style). Uses a small Vision Transformer on CIFAR-10 with evaluation across linear probing, retrieval, anomaly detection, and embedding visualization — finding JEPA yields more perturbation-invariant representations while MAE performs stronger on linear probe accuracy.',
+		href: 'https://github.com/ConstantinVictorBeatErtel/jepa-experiment',
 	},
 	{
-		title: 'Factor Dashboard',
-		category: 'Analytics / Portfolio Tools',
+		title: 'Personalized Listing Photo Editing',
+		category: 'ML / Generative AI',
 		description:
-			'An interactive dashboard for screening companies by quality, valuation, and revision signals with an emphasis on explainability rather than black-box scores.',
-		href: 'https://github.com/ConstiX',
+			'A product-oriented ML prototype for personalized real-estate photo editing. Uses BLIP-2 for style discovery, FLUX.1 Kontext as a teacher model to generate content-preserving edits, and InstructPix2Pix with LoRA for student distillation — resulting in compact, photographer-specific adapters (~3 MB each) that reproduce a photographer\'s signature finish without running a heavyweight model at inference time.',
+		href: 'https://github.com/ConstantinVictorBeatErtel/photo_styling',
 	},
 	{
-		title: 'Forecasting Sandbox',
-		category: 'ML / Time Series',
+		title: 'Tesla Manufacturing Cost Simulator',
+		category: 'Analytics / Bayesian Modeling',
 		description:
-			'A collection of experiments for demand, revenue, and scenario forecasting using probabilistic models and lightweight evaluation tooling.',
-		href: 'https://github.com/ConstiX',
+			'A Bayesian simulation (Project Aurora) comparing US, Mexico, and China manufacturing costs across raw materials, labor, logistics, FX, tariffs, and discrete risk events. Replaces hand-crafted Normal priors with data-driven Student-t and Beta posteriors fit to FRED economic series, producing wider, more realistic uncertainty intervals across all factory scenarios.',
+		href: 'https://github.com/ConstantinVictorBeatErtel/Tesla_case_study',
+	},
+	{
+		title: 'Google Churn Case Study',
+		category: 'Analytics / Business Intelligence',
+		description:
+			'A customer churn investigation for BizGrow, a SaaS platform, using BigQuery. Identified a "Poison Group" — large enterprise customers (50+ employees) onboarded from July 2023 onward — responsible for 80% of revenue loss and $29M in revenue at risk. Root cause: sales teams overselling multi-warehousing features before the product was stable, causing a 27% productivity drop at the four-month mark.',
+		href: 'https://github.com/ConstantinVictorBeatErtel/google-churn-case-study',
 	},
 ];
