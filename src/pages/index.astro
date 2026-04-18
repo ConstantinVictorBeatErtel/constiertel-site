@@ -21,8 +21,7 @@ const featuredProjects = projects.slice(0, 3);
 			<h1>{site.name}</h1>
 			<p class="lede">{site.tagline}</p>
 			<p class="hero-text">
-				I build analytical products, publish equity research, and translate complex datasets into clear
-				investment narratives.
+				I build ML systems, publish equity research, and turn messy datasets into decisions worth making.
 			</p>
 			<div class="hero-actions">
 				<a class="button button--primary" href="/research">Read Research</a>
@@ -32,9 +31,9 @@ const featuredProjects = projects.slice(0, 3);
 		<div class="hero-panel card">
 			<p class="panel-label">Current focus</p>
 			<ul class="signal-list">
-				<li>Equity research with a durable-moat, cash-flow-first lens.</li>
-				<li>ML and analytics systems for forecasting, screening, and decision support.</li>
-				<li>Editorial writing that balances rigor, clarity, and market context.</li>
+				<li>Self-supervised vision and generative model research — building toward deployable ML systems.</li>
+				<li>Equity research with a long-horizon, cash-flow-first lens focused on durable business models.</li>
+				<li>Data science and ML coursework at UC Berkeley spanning statistics, optimization, and inference.</li>
 			</ul>
 		</div>
 	</section>
@@ -70,14 +69,14 @@ const featuredProjects = projects.slice(0, 3);
 		</div>
 		<div class="project-grid">
 			{featuredProjects.map((project) => (
-				<article class="project-card card">
+				<a class="project-card card" href={project.href} target="_blank" rel="noreferrer">
 					<div class="card-meta">
 						<span>{project.category}</span>
-						<a href={project.href} target="_blank" rel="noreferrer">Open</a>
+						<span>GitHub ↗</span>
 					</div>
 					<h3>{project.title}</h3>
 					<p>{project.description}</p>
-				</article>
+				</a>
 			))}
 		</div>
 	</section>

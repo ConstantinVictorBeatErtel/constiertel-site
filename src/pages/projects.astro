@@ -15,14 +15,14 @@ import { projects } from '../data/site';
 		</div>
 		<div class="project-grid">
 			{projects.map((project) => (
-				<article class="project-card card">
+				<a class="project-card card" href={project.href} target="_blank" rel="noreferrer">
 					<div class="card-meta">
 						<span>{project.category}</span>
-						<a href={project.href} target="_blank" rel="noreferrer">View link</a>
+						<span>GitHub ↗</span>
 					</div>
 					<h2>{project.title}</h2>
 					<p>{project.description}</p>
-				</article>
+				</a>
 			))}
 		</div>
 	</section>

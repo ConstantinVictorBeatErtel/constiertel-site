@@ -10,26 +10,26 @@ import { site } from '../data/site';
 			<h1>Research-minded builder with a bias for clarity.</h1>
 		</div>
 		<div class="about-grid">
-			<div class="photo-placeholder card">
-				<div class="photo-placeholder__inner">
-					<span>CE</span>
-					<p>Photo placeholder</p>
-				</div>
+			<div class="photo-wrap card">
+				<img src="/profile.jpg" alt="Constantin Ertel" class="profile-photo" />
 			</div>
 			<div class="stack">
 				<article class="card">
 					<h2>Background</h2>
 					<p>
-						I work at the intersection of investing, analytics, and machine learning. My focus is on
-						building systems that improve decision quality without obscuring the reasoning behind them.
+						I'm a student at UC Berkeley working at the intersection of machine learning, analytics, and
+						investing. I build systems that make hard problems tractable — from self-supervised vision
+						experiments and generative model pipelines to Bayesian cost simulations and churn investigations
+						on SaaS businesses.
 					</p>
 				</article>
 				<article class="card">
 					<h2>Bio</h2>
 					<p>
-						This site is a home for long-form equity research, project notes, and selected work across
-						data science, forecasting, and applied ML. The goal is straightforward: publish rigorous work
-						in a clean format that respects the reader’s attention.
+						This site collects equity research, project write-ups, and analytical work. I'm drawn to
+						problems that require both quantitative rigor and clear communication — where the goal is to
+						be precise about what you know and honest about what you don't. Outside of research and code,
+						I follow markets with a long-horizon, durable-moat lens.
 					</p>
 				</article>
 				<article class="card">
@@ -44,3 +44,19 @@ import { site } from '../data/site';
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.photo-wrap {
+		aspect-ratio: 4 / 5;
+		min-height: 24rem;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.profile-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+	}
+</style>
