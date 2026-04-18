@@ -4,13 +4,13 @@ export const site = {
 	tagline: 'Equity research, analytical systems, and machine learning projects.',
 	description:
 		'Consti Ertel is a personal site combining editorial equity research, analytics work, and a portfolio of machine learning projects.',
-	email: 'hello@constiertel.com',
+	email: 'constantinertel@berkeley.edu',
 	footerNote:
 		'A personal portfolio and publishing platform for long-form research, market notes, and analytical builds.',
 	socialLinks: [
-		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/constiertel/' },
-		{ label: 'GitHub', href: 'https://github.com/ConstiX' },
-		{ label: 'Email', href: 'mailto:hello@constiertel.com' },
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/constantin-ertel/' },
+		{ label: 'GitHub', href: 'https://github.com/ConstantinVictorBeatErtel' },
+		{ label: 'Email', href: 'mailto:constantinertel@berkeley.edu' },
 	],
 };
 
