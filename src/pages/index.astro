@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import ProjectCard from '../components/ProjectCard.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { projects, site } from '../data/site';
 
@@ -68,18 +69,8 @@ const featuredProjects = projects.slice(0, 3);
 			<h2>Machine learning and analytics projects with production intent.</h2>
 		</div>
 		<div class="project-grid">
-			{featuredProjects.map((project) => (
-				<a class="project-card card" href={project.liveHref ?? project.href} target="_blank" rel="noreferrer">
-					<div class="card-meta">
-						<span>{project.category}</span>
-						<div style="display:flex;gap:0.5rem;">
-							{project.liveHref && <span style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Live ↗</span>}
-							<a href={project.href} target="_blank" rel="noreferrer" style="font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)" onclick="event.stopPropagation()">GitHub ↗</a>
-						</div>
-					</div>
-					<h3>{project.title}</h3>
-					<p>{project.description}</p>
-				</a>
+			{featuredProjects.map((project, index) => (
+				<ProjectCard project={project} index={index} variant="compact" />
 			))}
 		</div>
 	</section>

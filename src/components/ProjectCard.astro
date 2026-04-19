@@ -1,0 +1,80 @@
+---
+import type { Project } from '../data/site';
+
+interface Props {
+	project: Project;
+	index?: number;
+	variant?: 'showcase' | 'compact';
+}
+
+const { project, index = 0, variant = 'showcase' } = Astro.props;
+const cardStyle = {
+	'--project-accent': project.accent,
+	'--project-accent-soft': project.accentSoft,
+	'--project-surface': project.surface,
+};
+---
+
+<article
+	class:list={[
+		'project-card',
+		'card',
+		`project-card--${variant}`,
+		variant === 'showcase' && index % 2 === 1 && 'project-card--reversed',
+	]}
+	style={cardStyle}
+>
+	<div class="project-card__visual" aria-hidden="true">
+		<div class="project-card__visual-meta">
+			<span>{project.category}</span>
+			<span>{project.year}</span>
+		</div>
+		<div class="project-card__visual-frame">
+			<div class="project-card__visual-chip">{project.metric.label}</div>
+			<p class="project-card__visual-value">{project.metric.value}</p>
+			<p class="project-card__visual-note">{project.visualNote}</p>
+		</div>
+		<div class="project-card__visual-tags">
+			{project.stack.slice(0, 3).map((item) => (
+				<span>{item}</span>
+			))}
+		</div>
+	</div>
+
+	<div class="project-card__body">
+		<div class="project-card__header">
+			<div class="card-meta project-card__meta">
+				<span>{project.category}</span>
+				<span>{project.status}</span>
+			</div>
+			{variant === 'compact' ? <h3>{project.title}</h3> : <h2>{project.title}</h2>}
+		</div>
+
+		<p>{variant === 'compact' ? project.summary : project.description}</p>
+
+		{variant === 'showcase' && (
+			<ul class="project-card__highlights">
+				{project.highlights.map((highlight) => (
+					<li>{highlight}</li>
+				))}
+			</ul>
+		)}
+
+		<div class="tag-row project-card__stack">
+			{project.stack.map((item) => (
+				<span class="tag">{item}</span>
+			))}
+		</div>
+
+		<div class="project-card__actions">
+			{project.liveHref && (
+				<a class="button button--primary" href={project.liveHref} target="_blank" rel="noreferrer">
+					Open live project
+				</a>
+			)}
+			<a class="button button--secondary" href={project.href} target="_blank" rel="noreferrer">
+				View GitHub
+			</a>
+		</div>
+	</div>
+</article>

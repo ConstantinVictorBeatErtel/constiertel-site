@@ -300,6 +300,197 @@ button {
 	gap: 1rem;
 }
 
+.project-card {
+	position: relative;
+	overflow: hidden;
+}
+
+.project-card--showcase {
+	display: grid;
+	grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1.1fr);
+	gap: 1.5rem;
+	padding: 1.2rem;
+}
+
+.project-card--reversed {
+	grid-template-columns: minmax(0, 1.1fr) minmax(15rem, 0.72fr);
+}
+
+.project-card--reversed .project-card__visual {
+	order: 2;
+}
+
+.project-card--compact {
+	display: grid;
+	gap: 1rem;
+	height: 100%;
+}
+
+.project-card__visual {
+	position: relative;
+	display: grid;
+	align-content: space-between;
+	min-height: 18rem;
+	padding: 1.25rem;
+	border-radius: 1.15rem;
+	border: 1px solid color-mix(in srgb, var(--project-accent) 20%, var(--border));
+	background:
+		radial-gradient(circle at top right, var(--project-accent-soft), transparent 40%),
+		var(--project-surface);
+	isolation: isolate;
+}
+
+.project-card__visual::before {
+	content: '';
+	position: absolute;
+	inset: auto -12% -24% 42%;
+	aspect-ratio: 1;
+	border-radius: 999px;
+	background: radial-gradient(circle, var(--project-accent-soft), transparent 70%);
+	pointer-events: none;
+	z-index: -1;
+}
+
+.project-card__visual-meta,
+.project-card__visual-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+
+.project-card__visual-meta span,
+.project-card__visual-tags span,
+.project-card__visual-chip {
+	display: inline-flex;
+	align-items: center;
+	border-radius: 999px;
+	padding: 0.45rem 0.75rem;
+	background: rgba(255, 255, 255, 0.58);
+	border: 1px solid rgba(255, 255, 255, 0.42);
+	font-size: 0.75rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: color-mix(in srgb, var(--text) 70%, var(--project-accent));
+	backdrop-filter: blur(14px);
+}
+
+.project-card__visual-frame {
+	display: grid;
+	gap: 0.85rem;
+	padding: 1rem;
+	border-radius: 1rem;
+	background: rgba(255, 255, 255, 0.66);
+	border: 1px solid rgba(255, 255, 255, 0.46);
+	backdrop-filter: blur(14px);
+	box-shadow: 0 18px 40px rgba(28, 23, 18, 0.08);
+}
+
+.project-card__visual-value {
+	margin: 0;
+	font-family: var(--font-serif);
+	font-size: clamp(2rem, 4vw, 3.1rem);
+	line-height: 0.94;
+	letter-spacing: -0.04em;
+}
+
+.project-card__visual-note {
+	margin: 0;
+	max-width: 24ch;
+	color: color-mix(in srgb, var(--text) 76%, var(--muted));
+	line-height: 1.65;
+}
+
+.project-card__body {
+	display: grid;
+	align-content: start;
+	gap: 1rem;
+}
+
+.project-card__header {
+	display: grid;
+	gap: 0.65rem;
+}
+
+.project-card__header h2,
+.project-card__header h3 {
+	margin: 0;
+	font-size: clamp(1.7rem, 3vw, 2.4rem);
+	line-height: 1.02;
+}
+
+.project-card__meta {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem;
+}
+
+.project-card__body p {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.project-card__highlights {
+	display: grid;
+	gap: 0.7rem;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.project-card__highlights li {
+	position: relative;
+	padding-left: 1.25rem;
+	line-height: 1.7;
+	color: color-mix(in srgb, var(--text) 82%, var(--muted));
+}
+
+.project-card__highlights li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.72rem;
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 999px;
+	background: var(--project-accent);
+	box-shadow: 0 0 0 0.3rem var(--project-accent-soft);
+}
+
+.project-card__stack {
+	gap: 0.6rem;
+}
+
+.project-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-top: 0.25rem;
+}
+
+.project-card__actions .button {
+	min-width: 11rem;
+}
+
+.project-card--compact .project-card__visual {
+	min-height: 14rem;
+}
+
+.project-card--compact .project-card__visual-note {
+	max-width: 18ch;
+}
+
+.project-card--compact .project-card__header h3 {
+	font-size: 1.6rem;
+}
+
+.project-card--compact .project-card__body {
+	gap: 0.9rem;
+}
+
+.project-card--compact .project-card__actions {
+	margin-top: auto;
+}
+
 .tag {
 	display: inline-flex;
 	align-items: center;
@@ -396,7 +587,9 @@ button {
 @media (max-width: 900px) {
 	.hero,
 	.about-grid,
-	.project-grid {
+	.project-grid,
+	.project-card--showcase,
+	.project-card--reversed {
 		grid-template-columns: 1fr;
 	}
 
@@ -419,6 +612,10 @@ button {
 	.article-shell {
 		padding: 1.4rem;
 	}
+
+	.project-card--reversed .project-card__visual {
+		order: initial;
+	}
 }
 
 @media (max-width: 560px) {
@@ -434,5 +631,24 @@ button {
 	.hero-actions {
 		flex-direction: column;
 		align-items: stretch;
+	}
+
+	.project-card,
+	.project-card--showcase {
+		padding: 1rem;
+	}
+
+	.project-card__visual {
+		min-height: 15rem;
+		padding: 1rem;
+	}
+
+	.project-card__visual-frame {
+		padding: 0.9rem;
+	}
+
+	.project-card__actions .button {
+		width: 100%;
+		min-width: 0;
 	}
 }
