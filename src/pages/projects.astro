@@ -15,10 +15,15 @@ import { projects } from '../data/site';
 		</div>
 		<div class="project-grid">
 			{projects.map((project) => (
-				<a class="project-card card" href={project.href} target="_blank" rel="noreferrer">
+				<a class="project-card card" href={project.liveHref ?? project.href} target="_blank" rel="noreferrer">
 					<div class="card-meta">
 						<span>{project.category}</span>
-						<span>GitHub ↗</span>
+						<div class="card-links">
+							{project.liveHref && (
+								<span class="card-link-badge">Live ↗</span>
+							)}
+							<a class="card-link-badge" href={project.href} target="_blank" rel="noreferrer" onclick="event.stopPropagation()">GitHub ↗</a>
+						</div>
 					</div>
 					<h2>{project.title}</h2>
 					<p>{project.description}</p>
@@ -27,3 +32,23 @@ import { projects } from '../data/site';
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.card-links {
+		display: flex;
+		gap: 0.5rem;
+		align-items: center;
+	}
+
+	.card-link-badge {
+		font-size: 0.75rem;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--muted);
+		transition: color 140ms ease;
+	}
+
+	.card-link-badge:hover {
+		color: var(--text);
+	}
+</style>

@@ -23,6 +23,14 @@ export const navLinks = [
 
 export const projects = [
 	{
+		title: 'Fincast',
+		category: 'Fintech / AI Application',
+		description:
+			'A financial valuation platform built with Next.js and Claude AI. Enter any stock ticker, choose DCF or exit-multiple analysis (P/E, EV/EBITDA, EV/FCF, EV/Sales), and get AI-generated 5-year projections, fair value estimates, and upside-to-current-price calculations — all powered by real-time market data and the Anthropic API.',
+		href: 'https://github.com/ConstantinVictorBeatErtel/fincast',
+		liveHref: 'https://fincast-agent.vercel.app/',
+	},
+	{
 		title: 'JEPA Experiment',
 		category: 'ML / Self-Supervised Learning',
 		description:
