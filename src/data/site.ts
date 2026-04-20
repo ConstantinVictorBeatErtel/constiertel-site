@@ -17,7 +17,7 @@ export const site = {
 export const navLinks = [
 	{ label: 'Home', href: '/' },
 	{ label: 'About', href: '/about' },
-	{ label: 'Research', href: '/research' },
+	{ label: 'Equity Research', href: '/research' },
 	{ label: 'Projects', href: '/projects' },
 ];
 
@@ -102,6 +102,7 @@ export const projects: Project[] = [
 		description:
 			'A product-oriented ML prototype for personalized real-estate photo editing. Uses BLIP-2 for style discovery, FLUX.1 Kontext as a teacher model to generate content-preserving edits, and InstructPix2Pix with LoRA for student distillation — resulting in compact, photographer-specific adapters (~3 MB each) that reproduce a photographer\'s signature finish without running a heavyweight model at inference time.',
 		href: 'https://github.com/ConstantinVictorBeatErtel/photo_styling',
+		liveHref: 'https://photo-styling.streamlit.app/',
 		year: '2025',
 		status: 'Prototype',
 		stack: ['BLIP-2', 'FLUX.1 Kontext', 'InstructPix2Pix', 'LoRA'],
@@ -127,6 +128,7 @@ export const projects: Project[] = [
 		description:
 			'A Bayesian simulation (Project Aurora) comparing US, Mexico, and China manufacturing costs across raw materials, labor, logistics, FX, tariffs, and discrete risk events. Replaces hand-crafted Normal priors with data-driven Student-t and Beta posteriors fit to FRED economic series, producing wider, more realistic uncertainty intervals across all factory scenarios.',
 		href: 'https://github.com/ConstantinVictorBeatErtel/Tesla_case_study',
+		liveHref: 'https://project-aurora.streamlit.app/',
 		year: '2024',
 		status: 'Analytics model',
 		stack: ['Bayesian simulation', 'FRED', 'Scenario analysis', 'Economic data'],

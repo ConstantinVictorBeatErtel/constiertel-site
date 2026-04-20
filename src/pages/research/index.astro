@@ -8,15 +8,27 @@ const research = (await getCollection('research')).sort(
 ---
 
 <BaseLayout
-	title="Research | Consti Ertel"
+	title="Equity Research | Consti Ertel"
 	description="Equity research articles and stock writeups by Consti Ertel."
 	activePath="/research"
 >
 	<section class="section-grid">
 		<div class="section-heading">
-			<p class="eyebrow">Research</p>
+			<p class="eyebrow">Equity Research</p>
 			<h1>Equity research articles, sorted by conviction and calendar.</h1>
 		</div>
+		
+		<!-- Investment Philosophy Featured Section -->
+		<div class="investment-philosophy-featured card">
+			<h2 class="investment-philosophy-title">Investment Philosophy</h2>
+			<p class="investment-philosophy-summary">
+				A systematic framework for identifying businesses that compound capital across decades — targeting companies with dominant market positions, multiple reinforcing moats, recurring revenue, and the capital efficiency to reinvest at high rates of return.
+			</p>
+			<a href="/research/investment-philosophy/" class="button button--primary">
+				Read Full Philosophy
+			</a>
+		</div>
+
 		<div class="stack">
 			{research.map((entry) => (
 				<a class="research-card card" href={`/research/${entry.id}/`}>
@@ -36,3 +48,45 @@ const research = (await getCollection('research')).sort(
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.investment-philosophy-featured {
+		background: linear-gradient(135deg, rgba(154, 107, 61, 0.08), rgba(255, 255, 255, 0.05));
+		border: 1px solid rgba(154, 107, 61, 0.2);
+		padding: 2rem;
+		margin-bottom: 3rem;
+		text-align: center;
+	}
+
+	.investment-philosophy-title {
+		font-size: 1.75rem;
+		margin-bottom: 1rem;
+		color: var(--text);
+		font-weight: 600;
+	}
+
+	.investment-philosophy-summary {
+		font-size: 1.1rem;
+		line-height: 1.6;
+		margin-bottom: 1.5rem;
+		color: color-mix(in srgb, var(--text) 90%, var(--muted));
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	@media (max-width: 768px) {
+		.investment-philosophy-featured {
+			padding: 1.5rem;
+			margin-bottom: 2rem;
+		}
+		
+		.investment-philosophy-title {
+			font-size: 1.5rem;
+		}
+		
+		.investment-philosophy-summary {
+			font-size: 1rem;
+		}
+	}
+</style>
