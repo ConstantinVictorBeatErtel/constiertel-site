@@ -39,7 +39,7 @@ Static Astro site for `constiertel.com`: a personal portfolio and equity researc
 │   ├── layouts
 │   │   └── BaseLayout.astro
 │   ├── pages
-│   │   ├── about.astro
+│   │   ├── essays.astro
 │   │   ├── index.astro
 │   │   ├── projects.astro
 │   │   └── research

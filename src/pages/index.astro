@@ -16,26 +16,43 @@ const featuredProjects = projects.slice(0, 3);
 	description="Personal portfolio and equity research platform for Consti Ertel, focused on analytical systems, machine learning, and long-horizon investing."
 	activePath="/"
 >
-	<section class="hero section-grid">
-		<div class="hero-copy">
-			<p class="eyebrow">Constiertel</p>
-			<h1>{site.name}</h1>
-			<p class="lede">{site.tagline}</p>
-			<p class="hero-text">
-				I build ML systems, publish equity research, and turn messy datasets into decisions worth making.
-			</p>
-			<div class="hero-actions">
-				<a class="button button--primary" href="/research">Read Research</a>
-				<a class="button button--secondary" href="/about">About Me</a>
-			</div>
+	<section class="section-grid">
+		<div class="section-heading">
+			<p class="eyebrow">About</p>
+			<h1>Research-minded builder with a bias for clarity.</h1>
 		</div>
-		<div class="hero-panel card">
-			<p class="panel-label">Current focus</p>
-			<ul class="signal-list">
-				<li>Self-supervised vision and generative model research — building toward deployable ML systems.</li>
-				<li>Equity research with a long-horizon, cash-flow-first lens focused on durable business models.</li>
-				<li>Data science and ML coursework at UC Berkeley spanning statistics, optimization, and inference.</li>
-			</ul>
+		<div class="about-grid">
+			<div class="photo-wrap card">
+				<img src="/profile.jpg" alt="Constantin Ertel" class="profile-photo" />
+			</div>
+			<div class="stack">
+				<article class="card">
+					<h2>Background</h2>
+					<p>
+						I'm a student at UC Berkeley working at the intersection of machine learning, analytics, and
+						investing. I build systems that make hard problems tractable — from self-supervised vision
+						experiments and generative model pipelines to Bayesian cost simulations and churn investigations
+						on SaaS businesses.
+					</p>
+				</article>
+				<article class="card">
+					<h2>Bio</h2>
+					<p>
+						This site collects equity research, project write-ups, and analytical work. I'm drawn to
+						problems that require both quantitative rigor and clear communication — where the goal is to
+						be precise about what you know and honest about what you don't. Outside of research and code,
+						I follow markets with a long-horizon, durable-moat lens.
+					</p>
+				</article>
+				<article class="card">
+					<h2>Links</h2>
+					<div class="inline-links">
+						{site.socialLinks.map((link) => (
+							<a href={link.href} target="_blank" rel="noreferrer">{link.label}</a>
+						))}
+					</div>
+				</article>
+			</div>
 		</div>
 	</section>
 
@@ -43,6 +60,10 @@ const featuredProjects = projects.slice(0, 3);
 		<div class="section-heading">
 			<p class="eyebrow">Recent research</p>
 			<h2>Editorial stock workups built for patient readers.</h2>
+		</div>
+		<div class="hero-actions hero-actions--section">
+			<a class="button button--primary" href="/research">Read Research</a>
+			<a class="button button--secondary" href="/essays">Essays</a>
 		</div>
 		<div class="stack">
 			{featuredResearch.map((entry) => (
@@ -75,3 +96,23 @@ const featuredProjects = projects.slice(0, 3);
 		</div>
 	</section>
 </BaseLayout>
+
+<style>
+	.photo-wrap {
+		aspect-ratio: 4 / 5;
+		min-height: 24rem;
+		padding: 0;
+		overflow: hidden;
+	}
+
+	.profile-photo {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		object-position: center top;
+	}
+
+	.hero-actions--section {
+		margin-bottom: 1.25rem;
+	}
+</style>
