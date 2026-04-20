@@ -40,6 +40,7 @@ export interface Project {
 	accent: string;
 	accentSoft: string;
 	surface: string;
+	previewImage?: string;
 }
 
 export const projects: Project[] = [
@@ -68,6 +69,7 @@ export const projects: Project[] = [
 		accent: '#a96d2f',
 		accentSoft: 'rgba(169, 109, 47, 0.16)',
 		surface: 'linear-gradient(145deg, rgba(169, 109, 47, 0.2), rgba(255, 255, 255, 0.18))',
+		previewImage: '/fincast-preview.jpg',
 	},
 	{
 		title: 'JEPA Experiment',
@@ -119,6 +121,7 @@ export const projects: Project[] = [
 		accent: '#7b6956',
 		accentSoft: 'rgba(123, 105, 86, 0.16)',
 		surface: 'linear-gradient(145deg, rgba(123, 105, 86, 0.22), rgba(255, 255, 255, 0.14))',
+		previewImage: '/photo-preview.jpg',
 	},
 	{
 		title: 'Tesla Manufacturing Cost Simulator',
@@ -145,6 +148,7 @@ export const projects: Project[] = [
 		accent: '#8f5b52',
 		accentSoft: 'rgba(143, 91, 82, 0.16)',
 		surface: 'linear-gradient(145deg, rgba(143, 91, 82, 0.22), rgba(255, 255, 255, 0.16))',
+		previewImage: '/tesla-preview.jpg',
 	},
 	{
 		title: 'Google Churn Case Study',

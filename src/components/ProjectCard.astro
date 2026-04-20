@@ -13,6 +13,7 @@ const cardStyle = {
 	'--project-accent-soft': project.accentSoft,
 	'--project-surface': project.surface,
 };
+const hasPreview = variant === 'showcase' && !!project.previewImage;
 ---
 
 <article
@@ -29,11 +30,22 @@ const cardStyle = {
 			<span>{project.category}</span>
 			<span>{project.year}</span>
 		</div>
-		<div class="project-card__visual-frame">
-			<div class="project-card__visual-chip">{project.metric.label}</div>
-			<p class="project-card__visual-value">{project.metric.value}</p>
-			<p class="project-card__visual-note">{project.visualNote}</p>
-		</div>
+		{hasPreview ? (
+			<div class="project-card__visual-frame project-card__visual-frame--image">
+				<img
+					src={project.previewImage}
+					alt={`${project.title} preview`}
+					class="project-card__preview-img"
+					loading="lazy"
+				/>
+			</div>
+		) : (
+			<div class="project-card__visual-frame">
+				<div class="project-card__visual-chip">{project.metric.label}</div>
+				<p class="project-card__visual-value">{project.metric.value}</p>
+				<p class="project-card__visual-note">{project.visualNote}</p>
+			</div>
+		)}
 		<div class="project-card__visual-tags">
 			{project.stack.slice(0, 3).map((item) => (
 				<span>{item}</span>
