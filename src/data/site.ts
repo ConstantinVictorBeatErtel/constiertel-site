@@ -11,6 +11,7 @@ export const site = {
 		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/constantin-ertel/' },
 		{ label: 'GitHub', href: 'https://github.com/ConstantinVictorBeatErtel' },
 		{ label: 'Email', href: 'mailto:constantinertel@berkeley.edu' },
+		{ label: 'Resume', href: '/Ertel_Constantin_Resume.pdf' },
 	],
 };
 
